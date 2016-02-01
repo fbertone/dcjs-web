@@ -1,0 +1,33 @@
+{
+  "name": "dcjs-web",
+  "version": "0.1.0",
+  "description": "distributed computing js web server",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0",
+    "gulp": "^3.9.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-notify": "^2.2.0",
+    "jshint": "^2.9.1",
+    "jshint-stylish": "^2.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fbertone/dcjs-web.git"
+  },
+  "author": "Fabrizio Bertone",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fbertone/dcjs-web/issues"
+  },
+  "homepage": "https://github.com/fbertone/dcjs-web#readme"
+}
