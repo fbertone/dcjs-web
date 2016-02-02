@@ -3,7 +3,7 @@ var exphbs  = require('express-handlebars');
 var passport = require('passport');
 var Strategy = require('passport-local').Strategy;
 var ensureLogin = require('connect-ensure-login');
-var authorization = require('express-authorization');
+var authorization = require('express-authorize');
 var db = require('./db');
 
 
@@ -69,8 +69,7 @@ app.use(passport.session());
 
 
 // setup permission middleware
-var ensureAdmin = authorization.ensureRequest.isPermitted('admin:adminDashboard');
-
+var ensureAdmin = authorization.isPermitted('admin:adminDashboard');
 
 app.get('/', function (req, res) {
     var displayName = 'anonymous';
