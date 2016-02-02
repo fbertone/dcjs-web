@@ -10,12 +10,15 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
+    "coveralls": "^2.11.6",
     "gulp": "^3.9.0",
     "gulp-jshint": "^2.0.0",
     "gulp-livereload": "^3.8.1",
     "gulp-notify": "^2.2.0",
     "jshint": "^2.9.1",
-    "jshint-stylish": "^2.1.0"
+    "jshint-stylish": "^2.1.0",
+    "mocha": "^2.4.5",
+    "mocha-lcov-reporter": "^1.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
