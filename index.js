@@ -2,6 +2,8 @@ var express = require('express');
 var exphbs  = require('express-handlebars');
 var passport = require('passport');
 var Strategy = require('passport-local').Strategy;
+var ensureLogin = require('connect-ensure-login');
+var authorization = require('express-authorization');
 var db = require('./db');
 
 
@@ -66,6 +68,9 @@ app.use(passport.session());
 
 
 
+// setup permission middleware
+var ensureAdmin = authorization.ensureRequest.isPermitted('admin:adminDashboard');
+
 
 app.get('/', function (req, res) {
     var displayName = 'anonymous';
@@ -84,7 +89,7 @@ app.get('/login',
 app.post('/login', 
   passport.authenticate('local', { failureRedirect: '/login' }),
   function(req, res) {
-    res.redirect('/');
+    res.redirect('/profile');
   });
   
 app.get('/logout',
@@ -94,10 +99,14 @@ app.get('/logout',
   });
 
 app.get('/profile',
-  require('connect-ensure-login').ensureLoggedIn(),
+  ensureLogin.ensureLoggedIn(),
   function(req, res){
     res.render('profile', { user: req.user });
   });
+  
+app.get('/admin', ensureAdmin, function (req, res) {
+  res.render('admin', {title: 'ADMIN DASHBOARD' });
+});
 
 var serverPort = (process.env.PORT || 3000);
 app.listen(serverPort, function () {
