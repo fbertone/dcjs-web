@@ -103,6 +103,11 @@ app.get('/profile',
     res.render('profile', { user: req.user });
   });
   
+app.get('/date',
+  function(req, res){
+    res.render('date', { title: 'DATE PICKER' });
+  });
+  
 app.get('/admin', ensureAdmin, function (req, res) {
   res.render('admin', {title: 'ADMIN DASHBOARD' });
 });
