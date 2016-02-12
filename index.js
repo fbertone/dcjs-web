@@ -45,11 +45,13 @@ passport.deserializeUser(function(id, cb) {
 
 var app = express();
 
+var hbs = require('./lib/hbs/hbs.js')(exphbs);
+
 //static files
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
 //handlebars templates
-app.engine('.hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
+app.engine('.hbs', hbs.engine);
 app.set('view engine', '.hbs');
 
 

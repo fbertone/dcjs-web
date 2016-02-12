@@ -1,7 +1,20 @@
 <p>Date: <input type="text" id="datepicker" name="date"></p>
 
+{{shortMonth 1}}
+{{shortMonth 2}}
+{{shortMonth 3}}
+{{shortMonth 4}}
+{{shortMonth 5}}
+{{shortMonth 6}}
+{{shortMonth 7}}
+{{shortMonth 8}}
+{{shortMonth 9}}
+{{shortMonth 10}}
+{{shortMonth 11}}
+{{shortMonth 12}}
+
 <script>
-$(function() {
+$(function() { //TODO impostare mindate al giorno corrente + x
   $( "#datepicker" ).datepicker( $.datepicker.regional[ "it" ] );
 });
 </script>
