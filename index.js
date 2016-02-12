@@ -6,6 +6,7 @@ var ensureLogin = require('connect-ensure-login');
 var authorization = require('express-authorize');
 var db = require('./db');
 
+var admin = require('./lib/admin');
 
 // Configure the local strategy for use by Passport.
 //
@@ -113,9 +114,7 @@ app.get('/date',
     });
   });
   
-app.get('/admin', ensureAdmin, function (req, res) {
-  res.render('admin', {title: 'ADMIN DASHBOARD' });
-});
+app.use('/admin', [ensureAdmin, admin]);
 
 var serverPort = (process.env.PORT || 3000);
 app.listen(serverPort, function () {
