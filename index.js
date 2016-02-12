@@ -107,7 +107,10 @@ app.get('/profile',
   
 app.get('/date',
   function(req, res){
-    res.render('date', { title: 'DATE PICKER' });
+    res.render('date', { title: 'DATE PICKER',
+      admin: true,
+      activePage: "Date"
+    });
   });
   
 app.get('/admin', ensureAdmin, function (req, res) {
